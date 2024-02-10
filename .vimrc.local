@@ -1,0 +1,40 @@
+" This file will be loaded at the end of .vimrc.
+" This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugin - cscope
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto load
+if has("cscope")
+        set csprg=/usr/bin/cscope
+        set csto=0
+        set cst
+        set nocsverb
+        " add any database in current directory
+        if filereadable("cscope.out")
+            cs add cscope.out
+        " else add database pointed to by environment
+        elseif $CSCOPE_DB != ""
+            cs add $CSCOPE_DB
+        endif
+        set csverb
+endif
+" s: Finds all uses of this symbol
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>  
+" g: Finds definition of this symbol
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
+" d: Finds calls by this function
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+" c: Finds calls to this function
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+" t: Find assignments to
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> 
+" e: Find this egrep pattern
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> 
+" f: Opens the filename under the cursor
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> 
+" i: Find files #including this file
+nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR> 
+
+
