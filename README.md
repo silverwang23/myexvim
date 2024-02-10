@@ -2,6 +2,10 @@
 ### how to install exvim
 1) cp .vim* ~/ -rf
 2) sudo apt install id-utils gawk ctags vim
+3) sudo apt install tmux
+myexvim + tmux : tmux是基于多终端开发，与myexvim 结合使用，解决了myexvim的窗口占用问题，还有可以解决在myexvim 中,
+复制粘贴的问题, tmux + myexvim 可以更方便在多终端，多工程，多窗口下快速切换和开发.
+
 ### how to use exvim
 0) base on exvim, :Update --> update tags and ID.
 1) :GS {tag}  : global search tags
